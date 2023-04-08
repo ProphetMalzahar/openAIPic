@@ -23,12 +23,18 @@ public class OpenAiController {
     @Resource
     private PicService picService;
 
+    /**
+     * 生成图片接口
+     *
+     * @param prompt 图片关键词
+     * @param num    生成数量
+     * @param size   图片大小 如1024×1024
+     * @return 图片
+     */
     @PostMapping("/generations")
     public String generations(@RequestParam("prompt") String prompt,
                               @RequestParam("num") int num,
                               @RequestParam("size") String size) {
-        return picService.generateImages(prompt, num, size);
+        return picService.generations(prompt, num, size);
     }
-
-
 }

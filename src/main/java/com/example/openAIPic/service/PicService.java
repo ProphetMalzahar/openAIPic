@@ -13,11 +13,11 @@ package com.example.openAIPic.service;
  */
 public interface PicService {
     /**
-     * 图片结果
-     * @param prompt
-     * @param num
-     * @param size
-     * @return
+     * 图片服务类
+     * @param prompt 图片关键词
+     * @param num 生成数量
+     * @param size 图片大小 如1024×1024
+     * @return 图片
      */
-    String generateImages(String prompt, int num,String size);
+    String generations(String prompt, int num, String size);
 }

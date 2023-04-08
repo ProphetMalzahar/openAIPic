@@ -1,7 +1,6 @@
 package com.example.openAIPic.service.impl;
 
 import com.example.openAIPic.service.PicService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -39,13 +38,13 @@ public class PicServiceImpl implements PicService {
 
 
     @Override
-    public String generateImages(String prompt, int num, String size) {
+    public String generations(String prompt, int num, String size) {
         RestTemplate restTemplate;
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", "Bearer " + API_KEY);
-        // We are including only some of the parameters to the json request
-        String requestJson = "{\"prompt\":\"" + prompt + "\",\"n\":" + num + "\",\"size\":" + size + "}";
+        // We are including only some parameters to the json request
+        String requestJson = "{\"prompt\":\"" + prompt + "\",\"n\":" + num + ",\"size\":\"" + size +"\""+ "}";
         HttpEntity<String> request = new HttpEntity<>(requestJson, headers);
         //直接访问有问题需要走代理
         Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("localhost", 7890));
