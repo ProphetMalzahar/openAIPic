@@ -34,7 +34,7 @@ public class PicServiceImpl implements PicService {
     /**
      * 你的openai key
      */
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "********************************";
 
 
     @Override
